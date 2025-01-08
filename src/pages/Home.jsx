@@ -1,39 +1,30 @@
-import { useState,useEffect } from 'react'
+//import { useContext } from 'react'
+import { useState } from 'react'
+//import { MedicineContext } from '../components/medicine'
+import { Link } from 'react-router'
 
 function Home() {
-  const [medicine, setMedicine] = useState('')
+  //const { medicine, setMedicine } = useContext(MedicineContext)
+  // const [medicine, setMedicine] = useState({
+  //   medicineName: "",
+  //   results: {},
+  // });
+  // const [search, setSearch] = useState('')
   const [results, setResults] = useState([])
 
   const handleSearch = (event) => {
     event.preventDefault()
-    const inSearch = document.getElementById('medicine').value
-    console.log(inSearch)
-    setMedicine(inSearch)
-    const url = `https://api.fda.gov/drug/label.json?&limit=5&search=openfda.brand_name:${inSearch}`
+    const onSearch = document.getElementById('medicine').value
+    console.log(onSearch)
+    const url = `https://api.fda.gov/drug/label.json?&limit=5&search=openfda.brand_name:${onSearch}`
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         const newResults = data.results
+        // setMedicine({medicineName: onSearch, results: newResults})
         setResults(newResults)
+        console.log(newResults)
       })
-  }
-
-  useEffect(() => {
-    const list = document.getElementById('results')
-    results.forEach(result => {
-      const listItem = document.createElement('li')
-      listItem.id = result.id
-      listItem.innerText = result.openfda.brand_name
-      listItem.addEventListener('click', moreInfo(result))
-      list.appendChild(listItem)
-    })
-  }, [results])
-
-  const moreInfo = (result) => {
-    return () => {
-      console.log(result)
-    }
   }
 
   return (
@@ -52,8 +43,17 @@ function Home() {
         
         <section>
           <h2>Resultados de la búsqueda</h2>
-          <h3> { medicine } </h3>
-          <ul id='results'></ul>
+          {/* <h3> { medicine.medicineName } </h3> */}
+          <ul>
+            {results.map(
+              result => (
+                <li key={result.id} id={result.id}>
+                  <Link to={`/product/${result.id}`}> {result.openfda.brand_name} </Link>
+                </li>
+                )
+              )}
+          
+          </ul>
         </section>
       </main>
     </>
