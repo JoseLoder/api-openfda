@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import CardProduct from "../components/cardProduct";
+import InfoProduct from "../components/InfoProduct";
 import { CssBaseline } from "@mui/material";
 
 function Product() {
@@ -25,7 +25,7 @@ function Product() {
       <section>
         <h1>Product</h1>
         {isLoading && <p>Cargando...</p>}
-        {!isLoading && <CardProduct product={product} />} 
+        {!isLoading && <InfoProduct product={product} />} 
       </section>
     </>
   );

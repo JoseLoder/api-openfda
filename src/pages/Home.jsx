@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
 import { CssBaseline, Button } from '@mui/material'
-
+import ListProducts from '../components/ListProducts'
 
 function Home() {
 
@@ -18,7 +17,7 @@ function Home() {
       .then(response => response.json())
       .then(data => {
         const newResults = data.results
-        // setMedicine({medicineName: onSearch, results: newResults})
+        console.log(newResults)
         setResults(newResults)
         setIsLoading(false)
       })
@@ -36,21 +35,14 @@ function Home() {
             Introduce aquí el medicamento que deseas buscar:
             <input type="text" id="medicine" name="medicine"/>
           </label>
-          <Button onClick={handleSearch}>Buscar</Button>
+          <Button type='submit' onClick={handleSearch}>Buscar</Button>
         </form>
         
         <section>
           <h2>Resultados de la búsqueda</h2>
           {isLoading && <p>Cargando...</p>}
-          <ul>
-            {results.map(
-              result => (
-                <li key={result.id} id={result.id}>
-                  <Link to={`/product/${result.id}`}> {result.openfda.brand_name} </Link>
-                </li>
-                )
-              )}
-          </ul>
+
+          {!isLoading && <ListProducts results={results} />}
         </section>
       </main>
     </>

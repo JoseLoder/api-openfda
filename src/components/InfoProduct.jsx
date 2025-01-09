@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-function CardProduct({ product }) {
+function InfoProduct({ product }) {
   return (
     <article className="card">
 <h2>{product.openfda?.brand_name}</h2>
@@ -20,4 +20,4 @@ function CardProduct({ product }) {
   );
 }
 
-export default CardProduct;
+export default InfoProduct;
