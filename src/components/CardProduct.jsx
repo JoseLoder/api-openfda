@@ -2,7 +2,7 @@
 
 function CardProduct({ product }) {
   return (
-    <div className="card">
+    <article className="card">
 <h2>{product.openfda?.brand_name}</h2>
       <ul>
         <li>Ingredientes Activos: {product.active_ingredient ? product.active_ingredient : "Sin aportaciones"}</li>
@@ -16,7 +16,7 @@ function CardProduct({ product }) {
         <li>Preguntas o comentarios: {product.questions ? product.questions : "Sin aportaciones"}</li>
         <li>parar de usar: {product.stop_use ? product.stop_use : "Sin aportaciones"}</li>
       </ul>
-    </div>
+    </article>
   );
 }
 

@@ -1,15 +1,10 @@
-//import { useContext } from 'react'
 import { useState } from 'react'
-//import { MedicineContext } from '../components/medicine'
 import { Link } from 'react-router'
+import { CssBaseline, Button } from '@mui/material'
+
 
 function Home() {
-  //const { medicine, setMedicine } = useContext(MedicineContext)
-  // const [medicine, setMedicine] = useState({
-  //   medicineName: "",
-  //   results: {},
-  // });
-  // const [search, setSearch] = useState('')
+
   const [results, setResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
@@ -31,6 +26,7 @@ function Home() {
 
   return (
     <>
+      <CssBaseline />
       <header>
         <h1>Bienvenido a mi prueba técnica</h1>
       </header>
@@ -40,7 +36,7 @@ function Home() {
             Introduce aquí el medicamento que deseas buscar:
             <input type="text" id="medicine" name="medicine"/>
           </label>
-          <button onClick={handleSearch}>Buscar</button>
+          <Button onClick={handleSearch}>Buscar</Button>
         </form>
         
         <section>
@@ -54,7 +50,6 @@ function Home() {
                 </li>
                 )
               )}
-          
           </ul>
         </section>
       </main>
