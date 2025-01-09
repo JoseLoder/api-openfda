@@ -11,9 +11,11 @@ function Home() {
   // });
   // const [search, setSearch] = useState('')
   const [results, setResults] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSearch = (event) => {
     event.preventDefault()
+    setIsLoading(true)
     const onSearch = document.getElementById('medicine').value
     console.log(onSearch)
     const url = `https://api.fda.gov/drug/label.json?&limit=5&search=openfda.brand_name:${onSearch}`
@@ -23,7 +25,7 @@ function Home() {
         const newResults = data.results
         // setMedicine({medicineName: onSearch, results: newResults})
         setResults(newResults)
-        console.log(newResults)
+        setIsLoading(false)
       })
   }
 
@@ -43,7 +45,7 @@ function Home() {
         
         <section>
           <h2>Resultados de la búsqueda</h2>
-          {/* <h3> { medicine.medicineName } </h3> */}
+          {isLoading && <p>Cargando...</p>}
           <ul>
             {results.map(
               result => (
