@@ -38,10 +38,7 @@ function Home() {
             <input type="text" id="medicine" name="medicine"/>
           <Button type='submit' onClick={handleSearch}>Buscar</Button>
         </form>
-        
-        {isLoading && <article>Cargando...</article>}
-
-        {!isLoading && <ListProducts results={results} />}
+        {<ListProducts results={results} isLoading = {isLoading} />}
       </main>
     </>
   )
