@@ -1,0 +1,18 @@
+.cardProduct {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.MuiCardActions-root {
+  display: flex;
+  justify-content: center;
+}
+
+.MuiTypography-root {
+  text-align: center;
+  height: 100px;
+}

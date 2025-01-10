@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/home";
 import Product from "./pages/Product";
 import { createTheme,ThemeProvider } from '@mui/material/styles';
+import './styles/App.css';
 
 const theme = createTheme({
   palette: {

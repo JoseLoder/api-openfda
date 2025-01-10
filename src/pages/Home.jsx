@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CssBaseline, Button } from '@mui/material'
 import ListProducts from '../components/ListProducts'
+import '../styles/Home.css';
 
 function Home() {
 
@@ -33,17 +34,14 @@ function Home() {
         <form>
           <label htmlFor="medicine">
             Introduce aquí el medicamento que deseas buscar:
-            <input type="text" id="medicine" name="medicine"/>
           </label>
+            <input type="text" id="medicine" name="medicine"/>
           <Button type='submit' onClick={handleSearch}>Buscar</Button>
         </form>
         
-        <section>
-          <h2>Resultados de la búsqueda</h2>
-          {isLoading && <p>Cargando...</p>}
+        {isLoading && <article>Cargando...</article>}
 
-          {!isLoading && <ListProducts results={results} />}
-        </section>
+        {!isLoading && <ListProducts results={results} />}
       </main>
     </>
   )

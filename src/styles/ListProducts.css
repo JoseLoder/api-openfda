@@ -1,0 +1,19 @@
+section {
+  display: flex;
+  align-self: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+h2 {
+  width: 100%;
+}
