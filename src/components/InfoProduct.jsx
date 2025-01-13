@@ -3,7 +3,7 @@ import { List, ListItemText, ListSubheader, Typography } from "@mui/material";
 import "../styles/InfoProduct.css";
 const tryShow = (string) => {
   if (string) {
-    return string;
+    return <Typography component="p">{string}</Typography>;
   }
   return "Sin aportaciones";
 }
