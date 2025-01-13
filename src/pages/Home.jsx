@@ -12,13 +12,11 @@ function Home() {
     event.preventDefault()
     setIsLoading(true)
     const onSearch = document.getElementById('medicine').value
-    console.log(onSearch)
     const url = `https://api.fda.gov/drug/label.json?&limit=5&search=openfda.brand_name:${onSearch}`
     fetch(url)
       .then(response => response.json())
       .then(data => {
         const newResults = data.results
-        console.log(newResults)
         setResults(newResults)
         setIsLoading(false)
       })

@@ -1,17 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Product from "./pages/Product";
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import './styles/App.css';
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#1976d2',
+      main: '#eb5a3c',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#9c27b0',
+      main: '#df9755',
+    },
+    background: {
+      default: '#edf4c2',
+      paper: '#e6dc9b',
     },
   },
 });
